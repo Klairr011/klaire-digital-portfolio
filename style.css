@@ -1,1 +1,175 @@
 
+
+/* Klaire Digital Technology — Navy & Orange */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0B1726;
+  color: #F4F7FB;
+  line-height: 1.6;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #263A50;
+  background: #102A43;
+}
+
+.logo {
+  color: #FF9F1C;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+nav a {
+  color: #E3EAF2;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.hero {
+  min-height: 75vh;
+  padding: 90px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 85% 20%,
+    #244B70 0,
+    #0B1726 52%
+  );
+}
+
+.tag {
+  color: #FFB84D;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(38px, 8vw, 68px);
+  line-height: 1.1;
+  margin: 20px 0;
+  max-width: 750px;
+}
+
+h1 span {
+  color: #FF9F1C;
+}
+
+.hero p {
+  color: #C6D2E0;
+  max-width: 550px;
+  margin-bottom: 28px;
+}
+
+.button {
+  display: inline-block;
+  background: #FF9F1C;
+  color: #17202A;
+  padding: 13px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.button:hover {
+  background: #FFB84D;
+}
+
+section {
+  padding: 65px 8%;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 12px;
+  color: #F4F7FB;
+}
+
+.section-intro {
+  color: #B4C2D2;
+  margin-bottom: 30px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, minmax(210px, 1fr)
+  );
+  gap: 18px;
+}
+
+.card {
+  background: #13263A;
+  border: 1px solid #2B425A;
+  border-radius: 10px;
+  padding: 24px;
+  transition: border-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: #FF9F1C;
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  color: #FFB84D;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #C6D2E0;
+  font-size: 14px;
+}
+
+#about {
+  background: #102A43;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  border-top: 1px solid #263A50;
+  color: #AFC0D2;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 18px 5%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav a {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 75px 6%;
+  }
+
+  section {
+    padding: 50px 6%;
+  }
+}
