@@ -1,65 +1,124 @@
 
-/* Klaire Digital Technology */
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Mobile navigation menu
-  const menuButton = document.querySelector(
-    ".menu-toggle, .nav-toggle, .hamburger, #menu-toggle, #nav-toggle"
-  );
-
-  const navMenu = document.querySelector(
-    ".nav-menu, .nav-links, .navbar-nav, #nav-menu, #primary-navigation"
-  );
+  // MOBILE NAVIGATION
+  const menuButton = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".main-nav");
 
   if (menuButton && navMenu) {
     menuButton.addEventListener("click", function () {
-      const isOpen = navMenu.classList.toggle("active");
-      menuButton.setAttribute("aria-expanded", String(isOpen));
+      const open = navMenu.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute(
+        "aria-label",
+        open ? "Close navigation" : "Open navigation"
+      );
     });
 
     navMenu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
-        navMenu.classList.remove("active");
+        navMenu.classList.remove("is-open");
         menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
       });
     });
   }
 
-  // Slideshow
-  document.querySelectorAll(
-    ".slideshow, .hero-slideshow, [data-slideshow]"
-  ).forEach(function (slider) {
-    const slides = Array.from(
-      slider.querySelectorAll(".slide, [data-slide]")
-    );
+  // HOMEPAGE SLIDESHOW
+  const heroSlides = document.querySelectorAll(
+    ".hero-slides .hero-slide"
+  );
+  const heroDots = document.querySelectorAll(".slide-dot");
+  const heroNumber = document.querySelector(".hero-index");
 
-    if (slides.length < 2) return;
-
+  if (heroSlides.length) {
     let current = 0;
 
-    function showSlide(index) {
-      current = (index + slides.length) % slides.length;
+    function showHeroSlide(index) {
+      current = (index + heroSlides.length) % heroSlides.length;
 
-      slides.forEach(function (slide, i) {
-        slide.classList.toggle("active", i === current);
+      heroSlides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === current);
+      });
+
+      heroDots.forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === current);
+      });
+
+      if (heroNumber) {
+        heroNumber.innerHTML =
+          "0" + (current + 1) + ' <span>/</span> 0' + heroSlides.length;
+      }
+    }
+
+    document.querySelector(".slide-next")?.addEventListener(
+      "click", function () {
+        showHeroSlide(current + 1);
+      }
+    );
+
+    document.querySelector(".slide-prev")?.addEventListener(
+      "click", function () {
+        showHeroSlide(current - 1);
+      }
+    );
+
+    heroDots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        showHeroSlide(Number(dot.dataset.go));
+      });
+    });
+
+    showHeroSlide(0);
+    window.setInterval(function () {
+      showHeroSlide(current + 1);
+    }, 5000);
+  }
+
+  // PROJECTS PAGE SLIDESHOW
+  const miniSlides = document.querySelectorAll(".mini-slide");
+  const miniDots = document.querySelectorAll(".mini-dot");
+
+  if (miniSlides.length) {
+    let miniCurrent = 0;
+
+    function showMiniSlide(index) {
+      miniCurrent = (index + miniSlides.length) % miniSlides.length;
+
+      miniSlides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === miniCurrent);
+      });
+
+      miniDots.forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === miniCurrent);
       });
     }
 
-    slider.querySelectorAll(".next, .next-slide").forEach(function (button) {
-      button.addEventListener("click", function () {
-        showSlide(current + 1);
+    document.querySelector(".mini-next")?.addEventListener(
+      "click", function () {
+        showMiniSlide(miniCurrent + 1);
+      }
+    );
+
+    document.querySelector(".mini-prev")?.addEventListener(
+      "click", function () {
+        showMiniSlide(miniCurrent - 1);
+      }
+    );
+
+    miniDots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        showMiniSlide(Number(dot.dataset.miniGo));
       });
     });
 
-    slider.querySelectorAll(".prev, .prev-slide").forEach(function (button) {
-      button.addEventListener("click", function () {
-        showSlide(current - 1);
-      });
-    });
-
-    showSlide(current);
+    showMiniSlide(0);
     window.setInterval(function () {
-      showSlide(current + 1);
+      showMiniSlide(miniCurrent + 1);
     }, 5000);
+  }
+
+  // AUTOMATIC FOOTER YEAR
+  document.querySelectorAll("[data-year]").forEach(function (element) {
+    element.textContent = new Date().getFullYear();
   });
 });
