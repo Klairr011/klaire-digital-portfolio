@@ -1,5 +1,5 @@
 /* KLAIRE DIGITAL TECHNOLOGY — responsive blue & orange portfolio */
-:root{--bg:#081525;--bg-soft:#0c1d31;--panel:#10263d;--panel-light:#152f49;--text:#f5f7fb;--muted:#aab8ca;--orange:#ffad42;--orange-light:#ffc46d;--blue:#5eb7ff;--line:rgba(188,211,235,.16);--radius:22px;--shadow:0 22px 65px rgba(0,0,0,.24)}
+:root{--bg:#081525;--bg-soft:#0c1d31;--panel:#10263d;--panel-light:#152f49;--text:#f5f7fb;--muted:#aab8ca;--orange:#FF4FA3;--orange-light:#F4A7C7;--blue:#5eb7ff;--line:rgba(188,211,235,.16);--radius:22px;--shadow:0 22px 65px rgba(0,0,0,.24)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
