@@ -1,19 +1,10 @@
 /* KLAIRE DIGITAL TECHNOLOGY — responsive blue & orange portfolio */
 
 :root {
-  --bg: #081525;
-  --bg-soft: #0c1d31;
-  --panel: #10263d;
-  --panel-light: #152f49;
-  --text: #f5f7fb;
-  --muted: #aab8ca;
-  --cobalt: #4169FF;
-  --cyan: #00D5FF;
-  --blue: #5eb7ff;
-  --orange: #FF8A00;
-  --line: rgba(188, 211, 235, .16);
-  --radius: 22px;
-  --shadow: 0 22px 65px rgba(0, 0, 0, .24);
+ --cobalt: #4169FF;
+--cyan: #00D5FF;
+--blue: #5eb7ff;
+--orange: #4169FF;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
